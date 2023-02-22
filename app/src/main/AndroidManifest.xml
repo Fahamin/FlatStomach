@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.fitnessch19.flatstomachworkout">
+    package="com.female.workout">
 
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <permission
-        android:name="com.fitnessch19.flatstomachworkout.permission.C2D_MESSAGE"
+        android:name="com.female.workout.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
-    <uses-permission android:name="com.fitnessch19.chestworkout.permission.C2D_MESSAGE" />
 
     <application
-        android:name="com.fitnessch19.flatstomachworkout.utils.AbsWomenApplication"
+        android:name=".utils.AbsWomenApplication"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-        android:icon="@mipmap/logo"
+        android:icon="@mipmap/icon"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
@@ -44,10 +43,11 @@
             android:value="@string/default_notification_channel_id" />
 
         <activity
-            android:name="com.fitnessch19.flatstomachworkout.activities.SplashActivity"
+            android:name=".activities.SplashActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -55,65 +55,65 @@
         </activity>
 
         <activity
-            android:name="com.fitnessch19.flatstomachworkout.activities.Start_Activity"
+            android:name=".activities.Start_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.fitnessch19.flatstomachworkout.activities.CalculateActivity"
+            android:name=".activities.CalculateActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.fitnessch19.flatstomachworkout.activities.UserDetailsActivity"
+            android:name=".activities.UserDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.fitnessch19.flatstomachworkout.activities.After_MainActivity"
+            android:name=".activities.After_MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1" />
 
         <activity
-            android:name="com.fitnessch19.flatstomachworkout.activities.Activity_MyProfile"
+            android:name=".activities.Activity_MyProfile"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.fitnessch19.flatstomachworkout.activities.MainActivity"
+            android:name=".activities.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.fitnessch19.flatstomachworkout.activities.DayActivity"
+            android:name=".activities.DayActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.fitnessch19.flatstomachworkout.activities.RestDayActivity"
+            android:name=".activities.RestDayActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.fitnessch19.flatstomachworkout.activities.TipsActivity"
+            android:name=".activities.TipsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.fitnessch19.flatstomachworkout.activities.CompletionExcActivity"
+            android:name=".activities.CompletionExcActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.fitnessch19.flatstomachworkout.activities.ExcDetailsActivity"
+            android:name=".activities.ExcDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.fitnessch19.flatstomachworkout.alarm.alarm_activities.AlarmMainActivity"
+            android:name=".alarm.alarm_activities.AlarmMainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.fitnessch19.flatstomachworkout.meals.MealsMainActivity"
+            android:name=".meals.MealsMainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.fitnessch19.flatstomachworkout.activities.MainExcerciseActivity"
+            android:name=".activities.MainExcerciseActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <receiver
-            android:name="com.fitnessch19.flatstomachworkout.alarm.alarmmanagerdemo.NotificationPublisher"
+            android:name=".alarm.alarmmanagerdemo.NotificationPublisher"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -122,7 +122,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="com.fitnessch19.flatstomachworkout.BootReceiver"
+            android:name=".BootReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -137,7 +137,7 @@
         </receiver>
 
         <service
-            android:name="com.fitnessch19.flatstomachworkout.fcm.MyFirebaseMessagingService"
+            android:name=".fcm.MyFirebaseMessagingService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -145,13 +145,14 @@
             </intent-filter>
         </service>
 
-        <service android:name="com.fitnessch19.flatstomachworkout.fcm.MyFirebaseInstanceIDService">
+        <service android:name=".fcm.MyFirebaseInstanceIDService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
         <service
-            android:name="com.fitnessch19.flatstomachworkout.fcm.MyJobService"
+            android:name=".fcm.MyJobService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
@@ -159,13 +160,9 @@
         </service>
 
         <receiver
-            android:name="com.fitnessch19.flatstomachworkout.receiver.NotificationReceiver"
+            android:name=".receiver.NotificationReceiver"
             android:enabled="true"
             android:exported="true" />
-
-        <activity
-            android:name="com.facebook.ads.AudienceNetworkActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize" />
 
         <service
             android:name="com.google.firebase.messaging.FirebaseMessagingService"
@@ -228,8 +225,9 @@
             tools:replace="android:configChanges" />
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="com.fitnessch19.flatstomachworkout.firebaseinitprovider"
+            android:authorities="com.female.workout.firebaseinitprovider"
             android:exported="false"
+            tools:replace="android:authorities"
             android:initOrder="100" />
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
