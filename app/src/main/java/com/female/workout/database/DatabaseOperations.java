@@ -1,5 +1,6 @@
 package com.female.workout.database;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -46,6 +47,7 @@ public class DatabaseOperations {
         return delete;
     }
 
+    @SuppressLint("Range")
     public List<WorkoutData> getAllDaysProgress() {
         ArrayList arrayList = new ArrayList();
         this.sqlite = this.dbHelper.getReadableDatabase();
@@ -74,6 +76,7 @@ public class DatabaseOperations {
         return arrayList;
     }
 
+    @SuppressLint("Range")
     public int getDayExcCounter(String str) {
         this.sqlite = this.dbHelper.getReadableDatabase();
         SQLiteDatabase sQLiteDatabase = this.sqlite;
@@ -97,6 +100,7 @@ public class DatabaseOperations {
         return i;
     }
 
+    @SuppressLint("Range")
     public String getDayExcCycles(String str) {
         this.sqlite = this.dbHelper.getReadableDatabase();
         SQLiteDatabase sQLiteDatabase = this.sqlite;
@@ -119,6 +123,7 @@ public class DatabaseOperations {
         return str2;
     }
 
+    @SuppressLint("Range")
     public float getExcDayProgress(String str) {
         this.sqlite = this.dbHelper.getReadableDatabase();
         SQLiteDatabase sQLiteDatabase = this.sqlite;

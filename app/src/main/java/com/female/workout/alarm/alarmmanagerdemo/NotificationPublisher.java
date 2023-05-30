@@ -1,5 +1,6 @@
 package com.female.workout.alarm.alarmmanagerdemo;
 
+import android.annotation.SuppressLint;
 import android.app.Notification.Builder;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -57,19 +58,19 @@ public class NotificationPublisher extends BroadcastReceiver {
         String str4 = "android.intent.category.LAUNCHER";
         String str5 = "android.intent.action.MAIN";
         if (VERSION.SDK_INT < 26) {
-            NotificationManager notificationManager = (NotificationManager) context2.getSystemService(str3);
+            @SuppressLint("WrongConstant") NotificationManager notificationManager = (NotificationManager) context2.getSystemService(str3);
             Intent intent = new Intent(context2, Start_Activity.class);
             intent.setAction(str5);
             intent.addCategory(str4);
-            intent.addFlags(268435456);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             notificationManager.notify(getNextNotifId(), new Builder(context2).setContentIntent(PendingIntent.getActivity(context2, getNextNotifId(), intent, flag)).setAutoCancel(true).setWhen(System.currentTimeMillis()).setSmallIcon(R.drawable.ic_stat_name).setContentTitle(str2).setContentText(str).setDefaults(1).build());
             return;
         }
         Intent intent2 = new Intent(context2, Start_Activity.class);
         intent2.setAction(str5);
         intent2.addCategory(str4);
-        intent2.addFlags(268435456);
-        NotificationManager notificationManager2 = (NotificationManager) context2.getSystemService(str3);
+        intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        @SuppressLint("WrongConstant") NotificationManager notificationManager2 = (NotificationManager) context2.getSystemService(str3);
         String str6 = "my_channel_id_01";
         NotificationChannel notificationChannel = new NotificationChannel(str6, "My Notifications", 4);
         notificationChannel.setDescription("Channel description");

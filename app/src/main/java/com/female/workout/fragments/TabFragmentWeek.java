@@ -988,17 +988,17 @@ public class TabFragmentWeek extends Fragment implements OnClickListener {
                 this.mBtnStdDiet.setTextColor(getResources().getColor(R.color.colorAccent));
                 this.mBtnVegDiet.setTextColor(getResources().getColor(R.color.black));
                 this.scrollweekstddietfood.setVisibility(View.VISIBLE);
-                this.scrollweekvegdietfood.setVisibility(4);
+                this.scrollweekvegdietfood.setVisibility(View.INVISIBLE);
             } else if (this.week_stddietenabled.booleanValue() && this.week_vegdietenabled.booleanValue()) {
                 this.mBtnStdDiet.setTextColor(getResources().getColor(R.color.black));
                 this.mBtnVegDiet.setTextColor(getResources().getColor(R.color.colorAccent));
-                this.scrollweekstddietfood.setVisibility(4);
+                this.scrollweekstddietfood.setVisibility(View.INVISIBLE);
                 this.scrollweekvegdietfood.setVisibility(View.VISIBLE);
             } else if (!this.week_stddietenabled.booleanValue() && !this.week_vegdietenabled.booleanValue()) {
                 this.mBtnStdDiet.setTextColor(getResources().getColor(R.color.colorAccent));
                 this.mBtnVegDiet.setTextColor(getResources().getColor(R.color.black));
                 this.scrollweekstddietfood.setVisibility(View.VISIBLE);
-                this.scrollweekvegdietfood.setVisibility(4);
+                this.scrollweekvegdietfood.setVisibility(View.INVISIBLE);
                 this.prefsEditor.putBoolean(this.stddiet, true);
                 this.prefsEditor.putBoolean(this.vegdiet, false);
                 this.prefsEditor.apply();

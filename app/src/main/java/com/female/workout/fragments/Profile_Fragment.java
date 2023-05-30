@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -30,6 +31,7 @@ import com.female.workout.database.DatabaseOperations;
 import com.female.workout.receiver.NotificationReceiver;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 import static androidx.core.app.NotificationCompat.CATEGORY_ALARM;
 
@@ -67,10 +69,6 @@ public class Profile_Fragment extends Fragment {
         this.prefsEditor = this.mSharedPreferences.edit();
         initilizeView(inflate);
         setUpView();
-
-
-
-
 
         return inflate;
     }
@@ -199,7 +197,7 @@ public class Profile_Fragment extends Fragment {
         instance.set(Calendar.HOUR_OF_DAY, i);
         instance.set(Calendar.MINUTE, i2);
         instance.set(Calendar.SECOND, i3);
-        ((AlarmManager) getContext().getSystemService(CATEGORY_ALARM)).setRepeating(AlarmManager.RTC_WAKEUP, instance.getTimeInMillis(), 86400000, PendingIntent.getBroadcast(getContext(), 100, new Intent(getContext(), NotificationReceiver.class), 134217728));
+        ((AlarmManager) Objects.requireNonNull(getContext()).getSystemService(Context.ALARM_SERVICE)).setRepeating(AlarmManager.RTC_WAKEUP, instance.getTimeInMillis(), 86400000, PendingIntent.getBroadcast(getContext(), 100, new Intent(getContext(), NotificationReceiver.class), 134217728));
     }
 
     private void launchDialogue() {

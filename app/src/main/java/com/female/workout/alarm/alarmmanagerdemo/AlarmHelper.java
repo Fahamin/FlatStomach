@@ -23,7 +23,7 @@ public class AlarmHelper {
     public AlarmManager alarmManager;
     public Context context;
     public SharedPreferences sharedPreferences;
-    final int flag = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE : PendingIntent.FLAG_UPDATE_CURRENT;
+    final int flag = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
 
     public AlarmHelper(Context context2) {
         this.context = context2;
